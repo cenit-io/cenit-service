@@ -13,7 +13,7 @@ module Cenit
           if (schema = Setup::Schema.where(criteria).first)
             service_url = Cenit.service_url ||
               request.base_url +
-                if (service_path = request.path.gsub(Cenit.schema_service_path, '')).empty?
+                if (service_path = request.path.gsub(Regexp.new("#{Cenit.schema_service_path}\\Z"), '')).empty?
                   '/service'
                 else
                   service_path
