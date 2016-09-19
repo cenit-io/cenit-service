@@ -11,7 +11,7 @@ module Cenit
           token.destroy
           criteria = { namespace: ns, uri: uri }
           if (schema = Setup::Schema.where(criteria).first)
-            service_url = Cenit.service_url ||
+            service_url = Cenit.routed_service_url ||
               request.base_url +
                 if (service_path = request.path.gsub(Regexp.new("#{Cenit.schema_service_path}\\Z"), '')).empty?
                   '/service'
