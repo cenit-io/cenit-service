@@ -3,8 +3,13 @@ module Setup
 
     field :namespace
     field :uri, type: String
-    field :schema, type: String
     field :schema_type, type: Symbol
+
+    belongs_to :snippet, class_name: Setup::Snippet.to_s, inverse_of: nil
+
+    def schema
+      snippet && snippet.code
+    end
 
     def cenit_ref_schema(options = {})
       options = {
