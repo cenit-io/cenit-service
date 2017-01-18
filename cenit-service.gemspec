@@ -18,5 +18,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 4.2.5'
 
+  s.add_runtime_dependency 'mongoid'
+  s.add_runtime_dependency 'cenit-config'
+  s.add_runtime_dependency 'cenit-multi_tenancy'
   s.add_runtime_dependency 'cenit-token'
+  s.add_runtime_dependency 'cross_origin'
 end
