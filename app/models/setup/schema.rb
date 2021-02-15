@@ -3,7 +3,7 @@ module Setup
 
     field :namespace
     field :uri, type: String
-    field :schema_type, type: Symbol
+    field :schema_type, type: StringifiedSymbol
 
     belongs_to :snippet, class_name: Setup::Snippet.to_s, inverse_of: nil
 
